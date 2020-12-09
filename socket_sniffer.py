@@ -135,15 +135,9 @@ def linux_main():
  
     # Bind the interface, likes eth0
     rawSocket.bind(("lo", 0))
-    i=0
     while True:
         packet = rawSocket.recvfrom(2048)[0]
-        
-        
-        i+=1
-        if i%10000==0:
-            ethernet_parser(packet)
-            print(i)
+        ethernet_parser(packet)
             
  
     rawSocket.close()
